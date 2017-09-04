@@ -93,6 +93,6 @@ Please send pull requests for bug fixes, code optimization, and ideas for improv
 
 ## License
 
-Code released under [the MIT license](https://github.com/owstack/bcccore/blob/master/LICENSE).
+Code released under [the MIT license](https://github.com/owstack/ows/blob/master/LICENSE).
 
-Copyright 2017 Open Wallet Stack. Bcccore is a trademark maintained by Open Wallet Stack.
+Copyright 2017 Open Wallet Stack.

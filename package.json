@@ -9,7 +9,7 @@
     "build-deb": "./scripts/build-deb"
   },
   "bin": {
-    "ows": "./bin/owsd"
+    "owsd": "./bin/owsd"
   },
   "keywords": [
     "ows",

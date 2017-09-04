@@ -1,0 +1,20 @@
+[Unit]
+Description=Bitcoin Core for OWS
+Requires=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/opt/ows
+ExecStart=/usr/bin/ows-bitcoind -datadir=/home/ows/.ows/data/
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=15
+User=ows
+ExecStartPre=/bin/mkdir -p /run/ows
+ExecStartPre=/bin/chown ows:ows /run/ows
+ExecStartPre=/bin/chmod 755 /run/ows
+PermissionsStartOnly=true
+TimeoutStopSec=300
+
+[Install]
+WantedBy=multi-user.target

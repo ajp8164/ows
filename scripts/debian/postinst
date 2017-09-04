@@ -1,0 +1,37 @@
+#!/bin/bash
+set -e
+set -o pipefail
+
+# add group
+if ! getent group | grep -q "^ows:" ; then
+    echo "Creating system group: ows"
+    groupadd --system ows
+fi
+
+# add user
+if ! getent passwd | grep -q "^ows:"; then
+    echo "Creating ows system user"
+    useradd --gid "ows" --system -m ows
+fi
+
+# build nodejs addons
+cd "/usr/opt/ows"
+SKIP_BITCOIN_DOWNLOAD=1 npm rebuild
+
+# setup data directory
+mkdir -p "/home/ows/.ows/data"
+chown -R ows:ows "/home/ows/.ows"
+
+# start ows
+if hash service 2> /dev/null; then
+    service ows start || echo "ows could not be registered or started"
+elif hash start 2> /dev/null; then
+    start ows || echo "ows could not be registered or started"
+elif hash systemctl 2> /dev/null; then
+    {
+        systemctl enable "ows.service" && \
+            systemctl start "ows.service"
+    } || echo "ows could not be registered or started"
+else
+    echo 'Your system does not appear to use upstart or systemd, so ows could not be started'
+fi

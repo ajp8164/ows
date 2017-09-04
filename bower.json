@@ -1,0 +1,28 @@
+{
+  "name": "ows",
+  "main": "./ows.min.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/owstack/ows",
+  "description": "A platform to build blockchain-based applications.",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "ows",
+    "open wallet stack",
+    "bitcoin",
+    "bitcoin cash",
+    "blockchain"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "CONTRIBUTING.md",
+    "gulpfile.js",
+    "lib",
+    "index.js",
+    "karma.conf.js",
+    "npm-shrinkwrap.json",
+    "test"
+  ]
+}

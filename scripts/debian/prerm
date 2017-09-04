@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+set -o pipefail
+
+if hash service 2> /dev/null; then
+    service ows stop || echo "ows wasn't running!"
+elif hash stop 2> /dev/null; then
+    stop "$service_name" || echo "ows wasn't running!"
+elif hash systemctl 2> /dev/null; then
+    systemctl disable "ows.service" || echo "ows wasn't running!"
+else
+    echo "Your system does not appear to use upstart or systemd, so ows could not be stopped"
+fi

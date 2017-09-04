@@ -66,13 +66,11 @@ log_title "Copying OWS"
 app_dir="$deb_dir/usr/opt/ows"
 
 cp -v "${root_dir}/bin/owsd" "${app_dir}/bin/owsd"
-cp -v "${root_dir}/bin/ows" "${app_dir}/bin/ows"
 chmod -vR 0755 "${app_dir}/bin/ows" "${app_dir}/bin/owsd"
 cp -v "${root_dir}/package.json" "${app_dir}"
 cp -v "${root_dir}/README.md" "${app_dir}"
 cp -v "${root_dir}/index.js" "${app_dir}"
 pushd "${deb_dir}/usr/bin"
-ln -vs "../opt/ows/bin/ows"
 ln -vs "../opt/ows/bin/owsd"
 ln -vs "../opt/ows/node_modules/.bin/bitcoind" "ows-bitcoind"
 popd

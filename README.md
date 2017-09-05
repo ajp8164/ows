@@ -18,7 +18,7 @@ Spin up a full node and join the bitcoin network:
 
 ```bash
 npm install -g ows
-owsd start btccore
+ows start btccore
 ```
 
 You can then view the OWS Explorer at the default location: `http://localhost:3001/explorer`, and your configuration file will be found in your home directory at `~/.ows`.

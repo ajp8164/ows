@@ -8,7 +8,9 @@ Infrastructure to build blockchain-based applications for the next generation of
 
 ## Getting Started
 
-Before you begin you'll need to have Node.js v4 or v0.12 installed. There are several options for installation. One method is to use [nvm](https://github.com/creationix/nvm) to easily switch between different versions, or download directly from [Node.js](https://nodejs.org/).
+Before you begin you'll need to have Node.js or Docker installed. There are several options for installation.
+
+Node installation:
 
 ```bash
 npm install -g ows
@@ -21,7 +23,18 @@ npm install -g ows
 ows start btccore
 ```
 
+Docker installation:
+
+```
+git clone https://github.com/owstack/ows
+cd ows
+docker build .
+docker run $YOURBUILDID ows start btccore
+```
+
 You can then view the OWS Explorer at the default location: `http://localhost:3001/explorer`, and your configuration file will be found in your home directory at `~/.ows`.
+
+## Use as a library:
 
 Create a bitcoin transaction:
 ```js

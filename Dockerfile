@@ -1,10 +1,30 @@
-# setup a centos image with ows binary components
-FROM centos:latest
-RUN yum -y install git curl which xz tar findutils
-RUN groupadd ows
-RUN useradd ows -m -s /bin/bash -g ows
-ENV HOME /home/ows
+FROM node:8.4.0
+
+# Build environment variables
+ENV HOME_PATH=/home/ows
+ENV APP=$HOME_PATH/node
+
+# Set up non root user to run install and build
+RUN useradd --user-group --create-home --shell /bin/false ows
+
+# Set up folder and add install files
+RUN mkdir -p $APP
+COPY package.json $APP
+
+# Any kind of copying from the host must be down as root so this sets
+# the permissions for the app user to be able to read the files
+RUN chown -R ows:ows $HOME_PATH/*
+
 USER ows
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
-RUN /bin/bash -l -c "nvm install v4 && nvm alias default v4"
-RUN /bin/bash -l -c "npm install ows -g"
+WORKDIR $APP
+
+# Install app dependencies
+RUN npm install
+
+# Copy the app source files
+USER root
+COPY . $APP
+RUN chown -R ows:ows $HOME_PATH/*
+ENV PATH=$PATH:./bin/
+
+CMD [ "ows" ]

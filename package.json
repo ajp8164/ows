@@ -38,12 +38,12 @@
     "request": "browser-request"
   },
   "dependencies": {
+    "bcccore-explorer-api": "https://github.com/owstack/bcccore-explorer-api.git",
     "bcccore-lib": "https://github.com/owstack/bcccore-lib.git",
     "bcccore-node": "https://github.com/owstack/bcccore-node.git",
-    "bcccore-explorer-api": "https://github.com/owstack/bcccore-explorer-api.git",
+    "btccore-explorer-api": "https://github.com/owstack/btccore-explorer-api.git",
     "btccore-lib": "https://github.com/owstack/btccore-lib.git",
     "btccore-node": "https://github.com/owstack/btccore-node.git",
-    "btccore-explorer-api": "https://github.com/owstack/btccore-explorer-api.git",
     "commander": "^2.8.1",
     "ows-explorer": "https://github.com/owstack/ows-explorer.git"
   },

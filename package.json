@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A platform to build blockchain-based applications.",
   "author": "Open Wallet Stack",
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha test/** --recursive",

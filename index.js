@@ -1,5 +1,7 @@
 'use strict';
 
-var bcccore = require('bcccore-lib');
+var nodeKind = {};
+nodeKind.bcccore = require('bcccore-lib');
+nodeKind.btccore = require('btccore-lib');
 
-module.exports = bcccore;
+module.exports = nodeKind;
